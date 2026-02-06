@@ -44,6 +44,41 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Custom Animated Scrollbar - Chrome, Safari, Edge */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 10px;
+  margin: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6, #a855f7);
+  border-radius: 10px;
+  border: 2px solid rgba(15, 23, 42, 0.4);
+  transition: all 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #818cf8, #a78bfa, #c084fc);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed, #9333ea);
+}
+
+/* Custom Scrollbar - Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8b5cf6 rgba(15, 23, 42, 0.4);
+}
+
 .bg-animate {
   position: fixed;
   top: 0;

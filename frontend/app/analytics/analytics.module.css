@@ -33,19 +33,29 @@
   font-weight: 800;
   background: linear-gradient(
     90deg,
-    #f8fafc,
-    #cbd5e1,
-    #818cf8,
-    #cbd5e1,
-    #f8fafc
+    #fbbf24,
+    #f59e0b,
+    #f97316,
+    #ef4444,
+    #ec4899,
+    #d946ef,
+    #a855f7,
+    #8b5cf6,
+    #6366f1,
+    #3b82f6,
+    #06b6d4,
+    #10b981,
+    #fbbf24
   );
-  background-size: 200% auto;
+  background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 0 12px 0;
   letter-spacing: -1px;
-  animation: gradientShift 4s ease-in-out infinite;
+  animation: 
+    gradientShift 6s ease-in-out infinite,
+    floatAnimation 3s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
@@ -54,6 +64,15 @@
   }
   50% {
     background-position: 100% center;
+  }
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
 
@@ -154,13 +173,35 @@
 .chartCard h3 {
   margin: 0 0 24px 0;
   font-size: 22px;
-  color: white;
   font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #f8fafc,
+    #a5b4fc,
+    #818cf8,
+    #a5b4fc,
+    #f8fafc
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradientFlow 3s ease-in-out infinite;
   border-bottom: 2px solid rgba(99, 102, 241, 0.3);
   padding-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
+}
+
+@keyframes textGradientFlow {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
 }
 
 .chartCard h3::before {
