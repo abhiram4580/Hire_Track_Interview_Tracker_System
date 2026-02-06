@@ -1,0 +1,117 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f5f7fb;
+  color: #222;
+}
+
+/* ===== PAGE CONTAINER ===== */
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* ===== ADD FORM ===== */
+.add-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.add-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 220px;
+}
+
+.add-form button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-form button:hover {
+  background: #4338ca;
+}
+
+/* ===== KANBAN BOARD ===== */
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+}
+
+/* ===== COLUMN ===== */
+.column {
+  background: #fdfdfd;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 260px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.column h3 {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: white;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  cursor: grab;
+}
+
+.card strong {
+  display: block;
+  font-size: 14px;
+}
+
+.card-role {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card button {
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.card button:hover {
+  background: #dc2626;
+}
