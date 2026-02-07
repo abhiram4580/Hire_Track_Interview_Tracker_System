@@ -16,7 +16,15 @@ const auth = require("./middleware/auth");
 
 async function startServer() {
   const app = express();
-  app.use(cors());
+  app.use(
+    cors({
+      origin: [
+        "https://hire-track-interview-tracker-system.vercel.app",
+        "http://localhost:3000",
+      ],
+      credentials: true,
+    })
+  );
 
   const server = new ApolloServer({
     typeDefs,
@@ -44,9 +52,10 @@ async function startServer() {
   server.applyMiddleware({ app });
 
   const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}/graphql`);
-  });
+  app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
+
 }
 
 startServer();
