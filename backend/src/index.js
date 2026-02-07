@@ -18,11 +18,19 @@ async function startServer() {
   const app = express();
   app.use(
     cors({
-      origin: "*",
+      origin: [
+        "https://hire-track-interview-tracker-system-nine.vercel.app",
+        "https://hire-track-interview-tracker-system.vercel.app",
+        "http://localhost:3000",
+      ],
       methods: ["GET", "POST", "OPTIONS"],
       allowedHeaders: ["Content-Type", "Authorization"],
+      credentials: true,
     })
   );
+
+  // IMPORTANT: handle preflight
+  app.options("*", cors());
 
   const server = new ApolloServer({
     typeDefs,
