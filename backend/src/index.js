@@ -1,20 +1,18 @@
-// 1️⃣ dotenv MUST be first
+
 require("dotenv").config();
 
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const cors = require("cors");
 
-// 2️⃣ Import Prisma SINGLETON (do NOT create again)
+
 const prisma = require("./prisma");
 
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers/resolvers");
 const auth = require("./middleware/auth");
 
-// 3️⃣ Debug once (optional)
-// 3️⃣ Debug once (optional)
-// console.log("DB URL:", process.env.DATABASE_URL);
+
 
 async function startServer() {
   const app = express();

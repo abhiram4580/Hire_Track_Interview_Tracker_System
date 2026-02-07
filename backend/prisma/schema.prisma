@@ -13,9 +13,9 @@ model User {
   password     String
   age          Int
   gender       Gender
+  createdAt    DateTime      @default(now())
   college      String?
   dateOfBirth  DateTime?
-  createdAt    DateTime      @default(now())
   applications Application[]
   goals        Goal[]
   reviews      Review[]
