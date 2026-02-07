@@ -18,12 +18,20 @@ async function startServer() {
   const app = express();
   app.use(
     cors({
-      origin: [
-        "https://hire-track-interview-tracker-system-nine.vercel.app",
-        "https://hire-track-interview-tracker-system.vercel.app",
-        "https://hire-track-interview-tracker-system-two.vercel.app",
-        "http://localhost:3000",
-      ],
+      origin: (origin, callback) => {
+        const allowedOrigins = [
+          "http://localhost:3000",
+          "https://hire-track-interview-tracker-system.vercel.app",
+        ];
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        
+        if (allowedOrigins.indexOf(origin) !== -1 || /https:\/\/hire-track-interview-tracker-system.*\.vercel\.app$/.test(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
       methods: ["GET", "POST", "OPTIONS"],
       allowedHeaders: ["Content-Type", "Authorization"],
       credentials: true,
