@@ -21,6 +21,7 @@ async function startServer() {
       origin: [
         "https://hire-track-interview-tracker-system-nine.vercel.app",
         "https://hire-track-interview-tracker-system.vercel.app",
+        "https://hire-track-interview-tracker-system-two.vercel.app",
         "http://localhost:3000",
       ],
       methods: ["GET", "POST", "OPTIONS"],
