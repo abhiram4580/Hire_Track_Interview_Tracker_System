@@ -8,7 +8,7 @@ import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 
 const httpLink = new HttpLink({
-  uri: "http://localhost:4000/graphql",
+  uri: process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/graphql",
 });
 
 const authLink = setContext(() => {
