@@ -1,348 +1,368 @@
-# 📊 SaaS Interview Tracker System
+# Interview Tracker System
 
-> A full-stack web application to help job seekers manage their interview applications, track progress, and analyze performance metrics with beautiful visualizations.
-
-[![Next.js](https://img.shields.io/badge/Next.js-16.1-black?logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![GraphQL](https://img.shields.io/badge/GraphQL-16.0-E10098?logo=graphql)](https://graphql.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Latest-336791?logo=postgresql)](https://www.postgresql.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+> A complete web application that helps job seekers organize and manage their interview applications from start to finish.
 
 ---
 
-## ✨ Features
+## What This Project Does
 
-### 📝 Application Management
-- **Kanban Board**: Drag-and-drop interface to move applications through stages
-  - Applied → Shortlisted → Online Test → Technical Interview → HR → Offered/Rejected
-- **Create & Track**: Add company name, role, status, and interview dates
-- **Quick Actions**: Update status, delete applications, and edit details
+This is a **full-stack web application** that solves a real problem: keeping track of multiple job applications during a job search. Instead of using spreadsheets or scattered notes, users can manage everything in one organized platform.
 
-### 📊 Analytics & Insights
-- **Visual Charts**: Pie and bar charts showing application distribution
-- **Key Metrics**: Total applications, offers received, and offer rate percentage
-- **Status Breakdown**: See how many applications are at each stage
-
-### 📅 Interview Calendar
-- **Upcoming Interviews**: View all scheduled interviews in one place
-- **Date Tracking**: Never miss an interview with organized date management
-
-### 🎯 Goal Setting
-- **Track Progress**: Set application targets (weekly/monthly/total)
-- **Progress Bars**: Visual representation of goals vs. actual applications
-- **Goal Management**: Create, update, and delete goals
-
-### 💬 Interview Reviews
-- **Share Experiences**: Document interview experiences with company, topics, and difficulty
-- **Review History**: Browse all past interview reviews
-- **Difficulty Ratings**: Easy, Medium, Hard classifications
-
-### 🔐 Secure Authentication
-- **User Registration**: Create account with email, username, and password
-- **JWT Authentication**: Secure token-based authentication
-- **Protected Routes**: Middleware-protected pages and API endpoints
-
-### 🎨 Beautiful UI
-- **Glassmorphism Design**: Modern, frosted-glass aesthetic
-- **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile
-- **Animated Themes**: Different color schemes for each section
-  - Home: Deep Space (Blue/Purple)
-  - Dashboard: Sunset (Orange/Pink)
-  - Analytics: Neon (Emerald/Teal)
+**Main Purpose:** Help job seekers track where each application stands, see upcoming interviews, analyze their job search progress, and learn from past interview experiences.
 
 ---
 
-## 🛠️ Tech Stack
+## Key Features Explained
 
-### Frontend
-| Technology | Purpose |
-|------------|---------|
-| [Next.js 16.1](https://nextjs.org/) | React framework with App Router |
-| [TypeScript](https://www.typescriptlang.org/) | Type-safe development |
-| [Apollo Client](https://www.apollographql.com/docs/react/) | GraphQL client for data fetching |
-| [Chart.js](https://www.chartjs.org/) | Interactive data visualizations |
-| CSS Modules | Scoped component styling |
+### 1. Application Dashboard
+Think of this as a **digital job board** where you can see all your applications organized by stage:
+- **Applied** - Just sent the application
+- **Shortlisted** - Company showed interest
+- **Online Test** - Scheduled for coding test or assessment
+- **Technical Interview** - Technical round scheduled
+- **HR Round** - Final HR discussion
+- **Offered** - Got the job offer!
+- **Rejected** - Application didn't move forward
 
-### Backend
-| Technology | Purpose |
-|------------|---------|
-| [Node.js](https://nodejs.org/) | JavaScript runtime |
-| [Apollo Server](https://www.apollographql.com/docs/apollo-server/) | GraphQL API server |
-| [Prisma](https://www.prisma.io/) | Next-generation ORM |
-| [PostgreSQL](https://www.postgresql.org/) | Relational database |
-| [JWT](https://jwt.io/) | Secure authentication tokens |
-| [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | Password hashing |
+**What makes it special:** You can drag and drop applications between stages (like moving sticky notes on a board). You can also add which company, what role, and when the interview is scheduled.
+
+### 2. Interview Calendar
+A dedicated page that shows **all your upcoming interviews in one place**. This helps you:
+- Never miss an interview
+- See what's coming up this week
+- Plan your preparation time
+- Track interview dates as you schedule them
+
+### 3. Analytics and Statistics
+Visual charts and graphs that show your job search progress:
+- **Total applications sent** - How many companies you've applied to
+- **Offer rate** - What percentage resulted in offers (helps you improve)
+- **Stage breakdown** - See how many applications are at each stage
+- **Charts** - Pie charts and bar graphs for easy visualization
+
+This helps you understand patterns, like "I get to technical rounds often but need to improve my final interviews."
+
+### 4. Goal Tracking
+Set targets for yourself:
+- "Apply to 10 companies this week"
+- "Get 3 interviews this month"
+- "Receive 1 offer by end of quarter"
+
+The system shows progress bars so you can see how close you are to your goals.
+
+### 5. Interview Review System
+After each interview, you can save notes about:
+- Which company it was
+- What topics they asked about
+- Your experience (what went well, what didn't)
+- Difficulty level (Easy, Medium, Hard)
+
+**Why this matters:** When preparing for similar companies or roles, you can review what worked before.
+
+### 6. User Accounts and Security
+- Each user has their own private account
+- Password protection (passwords are encrypted and stored securely)
+- Only you can see your data
+- Login/logout functionality
 
 ---
 
-## 📦 Project Structure
+## Technologies Used
 
+This project demonstrates proficiency in modern web development:
+
+### Frontend (What Users See)
+- **Next.js** - A popular React framework for building fast websites
+- **TypeScript** - JavaScript with type checking to prevent bugs
+- **Apollo Client** - Handles communication between frontend and backend
+- **Chart.js** - Creates the graphs and charts
+- **CSS Modules** - Styles the pages to look professional
+
+### Backend (Server and Database)
+- **Node.js** - JavaScript runtime for the server
+- **GraphQL** - Modern way to build APIs (more efficient than traditional REST)
+- **PostgreSQL** - Professional database that stores all the data
+- **Prisma** - Tool that makes database operations easier and safer
+- **JWT (JSON Web Tokens)** - Industry-standard method for secure login
+- **bcrypt** - Encrypts passwords so they're never stored as plain text
+
+### Why These Choices Matter:
+- **Next.js** is used by companies like Netflix, Uber, and Hulu
+- **PostgreSQL** is trusted by major companies for reliable data storage
+- **GraphQL** was developed by Facebook and is used by GitHub, Shopify, and Twitter
+- **TypeScript** reduces bugs by 15% according to research, showing attention to code quality
+
+---
+
+## Project Architecture
+
+This is a **full-stack application** with three main parts:
+
+### 1. Frontend Application
+The user interface where people interact with the system. Built with modern React patterns.
+
+**What it contains:**
+- Login and registration pages
+- Dashboard for managing applications
+- Analytics page with charts
+- Calendar view for interviews
+- Goals page for tracking targets
+- Profile page for user information
+
+### 2. Backend API Server
+The "brain" of the application that processes requests and manages data.
+
+**What it does:**
+- Handles user authentication (login/register)
+- Processes all data operations (create, read, update, delete)
+- Protects routes (only logged-in users can access their data)
+- Connects to the database
+- Validates all incoming data
+
+### 3. Database
+PostgreSQL database that stores:
+- User accounts and profiles
+- All job applications
+- Interview dates and details
+- Goals and progress
+- Interview reviews
+
+**Database relationships:** The database is properly designed with relationships (one user can have many applications, many goals, many reviews).
+
+---
+
+## How to Run This Project Locally
+
+If a recruiter or developer wants to test this project:
+
+### Step 1: Requirements
+- Node.js version 16 or newer installed
+- PostgreSQL database installed
+- Git installed
+
+### Step 2: Get the Code
 ```bash
-interview-tracker/
-├── frontend/                 # Next.js Frontend Application
-│   ├── app/                  # App Router Pages
-│   │   ├── dashboard/        # Main Kanban dashboard
-│   │   ├── analytics/        # Charts & statistics
-│   │   ├── calendar/         # Interview calendar view
-│   │   ├── goals/            # Goal tracking page
-│   │   ├── profile/          # User profile
-│   │   ├── login/            # Login page
-│   │   └── register/         # Registration page
-│   ├── components/           # Reusable UI Components
-│   │   ├── KanbanBoard.tsx   # Drag-and-drop board
-│   │   ├── Navbar.tsx        # Navigation bar
-│   │   └── StatCard.tsx      # Metric display cards
-│   ├── graphql/              # GraphQL Operations
-│   │   ├── queries/          # Query definitions
-│   │   └── mutations/        # Mutation definitions
-│   ├── apollo/               # Apollo Client configuration
-│   └── lib/                  # Utility functions
-│
-└── backend/                  # Node.js Backend API
-    ├── src/
-    │   ├── graphql/
-    │   │   ├── typeDefs.js   # GraphQL schema
-    │   │   └── resolvers/    # Query & mutation resolvers
-    │   ├── middleware/
-    │   │   └── auth.js       # JWT authentication
-    │   ├── prisma.js         # Prisma client instance
-    │   └── index.js          # Server entry point
-    └── prisma/
-        └── schema.prisma     # Database schema
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** v16 or higher
-- **PostgreSQL** installed and running
-- **Git** for version control
-
-### 1️⃣ Clone Repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/Hire_Track_Interview_Tracker_System.git
+git clone https://github.com/abhiram4580/Hire_Track_Interview_Tracker_System.git
 cd Hire_Track_Interview_Tracker_System
 ```
 
-### 2️⃣ Backend Setup
-
+### Step 3: Set Up Backend
 ```bash
 cd backend
 npm install
 
-# Create .env file
-echo 'DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/interview_tracker"
-JWT_SECRET="your-super-secret-jwt-key"
-PORT=4000' > .env
+# Create a .env file with these settings:
+DATABASE_URL="postgresql://username:password@localhost:5432/interview_tracker"
+JWT_SECRET="your-secret-key-here"
+PORT=4000
 
-# Run database migrations
+# Set up the database
 npx prisma migrate dev --name init
-
-# Generate Prisma client
 npx prisma generate
 
-# Start backend server
+# Start the server
 npm run dev
 ```
 
-Backend will run on `http://localhost:4000/graphql`
+The backend will run on `http://localhost:4000`
 
-### 3️⃣ Frontend Setup
-
+### Step 4: Set Up Frontend
 ```bash
-cd ../frontend
+cd frontend
 npm install
 
-# Create .env.local (optional)
-echo 'NEXT_PUBLIC_API_URL=http://localhost:4000/graphql' > .env.local
+# Optionally create .env.local with:
+NEXT_PUBLIC_API_URL=http://localhost:4000/graphql
 
-# Start frontend server
+# Start the application
 npm run dev
 ```
 
-Frontend will run on `http://localhost:3000`
+The application will open on `http://localhost:3000`
 
-### 4️⃣ Access Application
-
-Open your browser and navigate to:
-```
-http://localhost:3000
-```
-
-**First-time setup:**
-1. Click "Register" to create an account
-2. Fill in your details (email, username, password, age, gender)
+### Step 5: Test the Application
+1. Open your browser to `http://localhost:3000`
+2. Click "Register" and create a test account
 3. Login with your credentials
-4. Start tracking your interviews!
+4. Add a sample job application
+5. Try moving it between stages
+6. Check the analytics page to see charts
 
 ---
 
-## 🌐 Deployment
+## Live Deployment
 
-### Deploy to Render (Backend) + Vercel (Frontend) - 100% Free
+This application can be deployed to the cloud for **completely free** using:
 
-Detailed deployment guides available:
-- [Render + Vercel Guide](docs/render-vercel-deployment.md) - **Recommended (Free)**
-- [Railway + Vercel Guide](docs/railway-vercel-deployment.md)
+### Backend: Render.com
+- Free PostgreSQL database
+- Free Node.js hosting
+- Automatic deployment from GitHub
 
-**Quick Deploy:**
+### Frontend: Vercel
+- Free Next.js hosting
+- Automatic deployment from GitHub
+- Fast global CDN (Content Delivery Network)
 
-#### Backend on Render
-1. Create PostgreSQL database on Render
-2. Create Web Service from GitHub repo
-3. Set root directory: `backend`
-4. Set build command: `npm install && npx prisma generate && npx prisma migrate deploy`
-5. Add environment variables: `DATABASE_URL`, `JWT_SECRET`, `NODE_ENV=production`
+### Cost: $0/month for development and portfolio use
 
-#### Frontend on Vercel
-1. Import GitHub repository
-2. Set root directory: `frontend`
-3. Add environment variable: `NEXT_PUBLIC_API_URL=<your-render-backend-url>`
-4. Deploy!
+**Deployment steps available in separate documentation files.**
 
 ---
 
-## 📸 Screenshots
+## Technical Skills Demonstrated
 
-### Dashboard - Kanban Board
-![Dashboard](docs/screenshots/dashboard.png)
-*Drag-and-drop interface for managing applications*
+This project showcases the following abilities:
 
-### Analytics
-![Analytics](docs/screenshots/analytics.png)
-*Visual insights with pie and bar charts*
+### Full-Stack Development
+- ✅ Can build user interfaces with React/Next.js
+- ✅ Can create backend APIs with Node.js and GraphQL
+- ✅ Can design and work with databases (PostgreSQL)
+- ✅ Can connect frontend and backend
 
-### Interview Calendar
-![Calendar](docs/screenshots/calendar.png)
-*Never miss an upcoming interview*
+### Software Engineering Practices
+- ✅ Code organization (separated frontend/backend)
+- ✅ Security implementation (password encryption, authentication)
+- ✅ Database design (proper relationships and structure)
+- ✅ Type safety with TypeScript
+- ✅ Version control with Git
 
----
+### Problem Solving
+- ✅ Identified a real-world problem (tracking job applications)
+- ✅ Designed a complete solution
+- ✅ Implemented features that add real value
 
-## 🗄️ Database Schema
-
-```prisma
-model User {
-  id           String        @id @default(cuid())
-  email        String        @unique
-  username     String        @unique
-  password     String
-  age          Int
-  gender       Gender
-  applications Application[]
-  goals        Goal[]
-  reviews      Review[]
-}
-
-model Application {
-  id            String            @id @default(cuid())
-  company       String
-  role          String
-  status        ApplicationStatus
-  interviewDate DateTime?
-  userId        String
-  user          User              @relation(fields: [userId], references: [id])
-}
-
-enum ApplicationStatus {
-  APPLIED
-  SHORTLISTED
-  ONLINE_TEST
-  TECHNICAL_INTERVIEW
-  HR
-  OFFERED
-  REJECTED
-}
-```
+### Modern Web Standards
+- ✅ RESTful API alternative (GraphQL)
+- ✅ Responsive design (works on all devices)
+- ✅ Secure authentication (industry standards)
+- ✅ Clean, maintainable code structure
 
 ---
 
-## 🔑 Environment Variables
+## Database Design
 
-### Backend (.env)
-```bash
-DATABASE_URL="postgresql://user:password@host:5432/dbname"
-JWT_SECRET="your-random-secret-key-change-this"
-NODE_ENV="development"
-PORT=4000
-```
+The database has four main tables:
 
-### Frontend (.env.local)
-```bash
-NEXT_PUBLIC_API_URL="http://localhost:4000/graphql"
-```
+### Users Table
+Stores user account information:
+- Email (unique)
+- Username (unique)
+- Password (encrypted)
+- Age, gender, and other profile data
 
----
+### Applications Table
+One user can have many applications. Each application stores:
+- Company name
+- Job role/position
+- Current status (Applied, Shortlisted, etc.)
+- Interview date (if scheduled)
+- Which user it belongs to
 
-## 📝 Available Scripts
+### Goals Table
+Tracks user-defined targets:
+- Type of goal (weekly, monthly, total)
+- Target number
+- Current progress
+- Which user set the goal
 
-### Backend
-```bash
-npm run dev      # Start development server with nodemon
-npm start        # Start production server
-npm run build    # Generate Prisma client
-```
+### Reviews Table
+Interview experience notes:
+- Company name
+- Topics discussed
+- User's experience
+- Difficulty rating
+- Interview date
+- Which user wrote it
 
-### Frontend
-```bash
-npm run dev      # Start Next.js dev server
-npm run build    # Build for production
-npm start        # Start production server
-npm run lint     # Run ESLint
-```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+**Why this matters:** Proper database design prevents data loss and makes the application scalable.
 
 ---
 
-## 📄 License
+## Security Features
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project implements real-world security practices:
 
----
+### Password Security
+- Passwords are **never stored as plain text**
+- Uses bcrypt hashing (industry standard)
+- Salt rounds = 10 (recommended security level)
 
-## 👤 Author
+### Authentication
+- JWT (JSON Web Tokens) for session management
+- Tokens expire after 7 days
+- Protected routes - users can only access their own data
 
-**Your Name**
-- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
-- LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/your-profile)
-
----
-
-## 🙏 Acknowledgments
-
-- **Chart.js** for beautiful data visualizations
-- **Prisma** for the amazing developer experience
-- **Next.js Team** for the incredible framework
-- **Vercel** & **Render** for free hosting
+### Backend Validation
+- All user inputs are validated
+- Database queries are protected against SQL injection
+- Middleware checks authentication on every request
 
 ---
 
-## 📊 Project Status
+## What Makes This Project Stand Out
 
-✅ **Version**: 1.0.0  
-✅ **Status**: Active Development  
-✅ **Last Updated**: February 2026
+### 1. Addresses a Real Need
+Not just a todo app or calculator - this solves an actual problem job seekers face.
+
+### 2. Production-Ready Tech Stack
+Uses the same technologies that companies like Netflix, Airbnb, and Uber use.
+
+### 3. Complete Feature Set
+- User authentication
+- Data visualization
+- CRUD operations (Create, Read, Update, Delete)
+- Calendar functionality
+- Goal tracking
+- Review system
+
+### 4. Professional Code Organization
+- Clear separation of concerns
+- Reusable components
+- Modular structure
+- Environment configuration
+
+### 5. Can Be Deployed Live
+Not just runs on localhost - can be deployed to production for free.
+
+---
+
+## Future Enhancements (Potential)
+
+Ideas for expanding this project:
+- Email notifications for upcoming interviews
+- Resume builder integration
+- Job search aggregation from multiple sites
+- Interview preparation resources
+- Networking contacts tracker
+- Salary tracking and comparison
+
+---
+
+## 👤 Authors
+
+**Abhiram Naidu, Likith Varun Sai**
+- GitHub: [abhiram4580](https://github.com/abhiram4580)
+- LinkedIn: [Abhiram Naidu](https://www.linkedin.com/in/abhiram-naidu-453174229/)
+- LinkedIn: [Likith Varun Sai](https://linkedin.com/in/likhith-varun-sai-a71bb6253)
+
+---
+
+## Project Information
+
+**Status:** Completed and functional  
+**Version:** 1.0.0  
+**Last Updated:** February 2026  
+**License:** MIT
 
 ---
 
 <div align="center">
 
-### ⭐ Star this repo if it helped you!
+### Questions About This Project?
 
-Made with ❤️ by [Your Name](https://github.com/YOUR_USERNAME)
+Feel free to explore the code, test the application, or reach out with any questions!
+
+Made by [Abhiram](https://github.com/abhiram4580) and Likith Varun Sai
 
 </div>
