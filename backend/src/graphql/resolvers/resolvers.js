@@ -119,6 +119,10 @@ const resolvers = {
         },
       });
 
+      // Send welcome email (non-blocking)
+      const { sendWelcomeEmail } = require("../../utils/email");
+      sendWelcomeEmail(email, username);
+
       const token = jwt.sign(
         { userId: user.id },
         process.env.JWT_SECRET,

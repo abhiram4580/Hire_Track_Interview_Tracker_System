@@ -1,16 +1,8 @@
 
 const cron = require('node-cron');
-const nodemailer = require('nodemailer');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const { transporter } = require('./utils/email');
 
 const sendInterviewReminders = async () => {
     try {

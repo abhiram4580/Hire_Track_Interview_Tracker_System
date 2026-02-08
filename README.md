@@ -59,7 +59,14 @@ After each interview, you can save notes about:
 
 **Why this matters:** When preparing for similar companies or roles, you can review what worked before.
 
-### 6. User Accounts and Security
+**Why this matters:** When preparing for similar companies or roles, you can review what worked before.
+
+### 6. Email Notifications 📧 [NEW]
+Stay updated with automated emails:
+- **Welcome Email:** Receive a warm welcome with getting started tips upon registration.
+- **Daily Interview Reminders:** Get an email at 8:00 AM if you have an interview scheduled for that day.
+
+### 7. User Accounts and Security
 - Each user has their own private account
 - Password protection (passwords are encrypted and stored securely)
 - Only you can see your data
@@ -128,6 +135,10 @@ PostgreSQL database that stores:
 - Interview reviews
 
 **Database relationships:** The database is properly designed with relationships (one user can have many applications, many goals, many reviews).
+
+### UI/UX Improvements
+- **Optimistic UI Updates:** Experience instant feedback when dragging applications or updating goal progress. No more loading spinners for small actions!
+- **Glassmorphism Design:** A modern, sleek interface with blur effects and smooth animations.
 
 ---
 
@@ -330,7 +341,6 @@ Not just runs on localhost - can be deployed to production for free.
 ## Future Enhancements (Potential)
 
 Ideas for expanding this project:
-- Email notifications for upcoming interviews
 - Resume builder integration
 - Job search aggregation from multiple sites
 - Interview preparation resources
