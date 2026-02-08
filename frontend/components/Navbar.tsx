@@ -16,8 +16,11 @@ export default function Navbar() {
   // Hide Navbar on Login/Register pages
   if (['/login', '/register'].includes(pathname)) return null;
 
+import { toast } from "react-hot-toast";
+
   const handleLogout = () => {
     localStorage.removeItem("token");
+    toast.success("Logged out successfully");
     router.push("/login");
   };
 

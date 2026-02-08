@@ -63,7 +63,7 @@ export default function CalendarPage() {
               const date = new Date(interview.interviewDate);
               const day = date.getDate();
               const month = date.toLocaleString('default', { month: 'short' });
-              const time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
 
               return (
                 <div key={interview.id} className={styles.card}>
@@ -74,7 +74,7 @@ export default function CalendarPage() {
                   <div className={styles.details}>
                     <h3>{interview.company}</h3>
                     <p className={styles.role}>{interview.role}</p>
-                    <span className={styles.time}>{time}</span>
+{/* Time removed as per request */}
                   </div>
                   <div className={`${styles.status} ${styles[interview.status]}`}>
                     {interview.status.replace("_", " ")}

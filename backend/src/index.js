@@ -1,16 +1,24 @@
 
+console.log("DEBUG: Starting index.js");
 require("dotenv").config();
+require("./cron"); // Start the cron job
+console.log("DEBUG: Loaded dotenv");
 
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const cors = require("cors");
+console.log("DEBUG: Loaded express deps");
 
 
 const prisma = require("./prisma");
+console.log("DEBUG: Loaded prisma");
 
 const typeDefs = require("./graphql/typeDefs");
+console.log("DEBUG: Loaded typeDefs");
 const resolvers = require("./graphql/resolvers/resolvers");
+console.log("DEBUG: Loaded resolvers");
 const auth = require("./middleware/auth");
+console.log("DEBUG: Loaded auth");
 
 
 

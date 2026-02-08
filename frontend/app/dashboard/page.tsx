@@ -7,6 +7,8 @@ import { useAuthGuard } from "@/lib/useAuthguard";
 import { CREATE_REVIEW } from "@/graphql/mutations/createReview";
 import { GET_REVIEWS } from "@/graphql/queries/getReviews";
 import { DELETE_REVIEW } from "@/graphql/mutations/deleteReview";
+import ConfirmationModal from "@/components/ConfirmationModal";
+import { toast } from "react-hot-toast";
 
 
 interface Review {
@@ -32,6 +34,8 @@ export default function ReviewPage() {
   const [interviewMonth, setInterviewMonth] = useState("");
   const [interviewDay, setInterviewDay] = useState("");
   const [interviewYear, setInterviewYear] = useState("");
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [reviewIdToDelete, setReviewIdToDelete] = useState<string | null>(null);
 
   const { data, loading, error, refetch } = useQuery<GetReviewsData>(GET_REVIEWS);
   const [deleteReview] = useMutation(DELETE_REVIEW, {
@@ -39,9 +43,19 @@ export default function ReviewPage() {
     onError: (err) => alert("Failed to delete review: " + err.message)
   });
 
-  const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this review?")) {
-      await deleteReview({ variables: { id } });
+  const handleDelete = (id: string) => {
+    setReviewIdToDelete(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (reviewIdToDelete) {
+      try {
+        await deleteReview({ variables: { id: reviewIdToDelete } });
+        toast.success("Deleted successfully");
+      } catch (err) {
+        toast.error("Failed to delete review");
+      }
     }
   };
   const [createReview, { loading: submitting }] = useMutation(CREATE_REVIEW, {
@@ -248,6 +262,12 @@ export default function ReviewPage() {
             )}
           </div>
         </div>
+        <ConfirmationModal
+          isOpen={isDeleteModalOpen}
+          onClose={() => setIsDeleteModalOpen(false)}
+          onConfirm={confirmDelete}
+          message="Are you sure that you want to delete this?"
+        />
       </div>
     </main>
   );

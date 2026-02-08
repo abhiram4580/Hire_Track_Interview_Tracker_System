@@ -1,6 +1,7 @@
 import "./globals.css";
 import Providers from "./providers";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "HireTrack - Interview Application Tracker",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
+          <Toaster position="top-right" />
           {children}
         </Providers>
       </body>

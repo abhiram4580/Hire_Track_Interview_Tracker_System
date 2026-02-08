@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client/react";
 import { REGISTER_MUTATION } from "@/graphql/mutations/register";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 
 interface RegisterData {
   register: {
@@ -86,6 +87,7 @@ export default function Register() {
 
       if (res.data?.register) {
         localStorage.setItem("token", res.data.register.token);
+        toast.success("Registered successfully");
         router.push("/");
       }
     } catch (err) {

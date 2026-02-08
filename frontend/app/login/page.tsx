@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client/react";
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 
 const LOGIN_MUTATION = gql`
   mutation Login($email: String!, $password: String!) {
@@ -34,6 +35,7 @@ export default function LoginPage() {
   const [login, { loading, error }] = useMutation<LoginData, LoginVars>(LOGIN_MUTATION, {
     onCompleted: (data) => {
       localStorage.setItem("token", data.login.token);
+      toast.success("Logged in successfully");
       router.push("/");
     },
   });
