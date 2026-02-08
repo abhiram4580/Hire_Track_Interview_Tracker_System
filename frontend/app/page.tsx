@@ -5,6 +5,7 @@ import { useQuery, useMutation } from "@apollo/client/react";
 import { useState } from "react";
 import KanbanBoard from "@/components/KanbanBoard";
 import { useAuthGuard } from "@/lib/useAuthguard";
+import { toast } from "react-hot-toast";
 
 /* -------------------- Types -------------------- */
 
@@ -122,14 +123,23 @@ export default function Home() {
     refetch();
   };
 
-  const handleStatusChange = async (
+  const handleStatusChange = (
     id: string,
     status: string
   ) => {
-    await updateApplicationStatus({
+    updateApplicationStatus({
       variables: { id, status },
+      optimisticResponse: {
+        updateApplicationStatus: {
+          id: id,
+          status: status,
+          __typename: "Application",
+        },
+      },
+    }).catch((err) => {
+      console.error("Failed to update status", err);
+      toast.error("Failed to update status");
     });
-    refetch();
   };
 
   const handleDelete = async (id: string) => {

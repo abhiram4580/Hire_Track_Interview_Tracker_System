@@ -83,11 +83,24 @@ export default function GoalsPage() {
     refetch();
   };
 
-  const handleIncrement = async (id: string, current: number, target: number) => {
+  const handleIncrement = (id: string, current: number, target: number) => {
     if (current >= target) return;
     
     const newProgress = current + 1;
-    await updateGoal({ variables: { id, progress: newProgress } });
+    
+    updateGoal({ 
+      variables: { id, progress: newProgress },
+      optimisticResponse: {
+        updateGoalProgress: {
+          id: id,
+          progress: newProgress,
+          __typename: "Goal",
+        },
+      },
+    }).catch((err) => {
+      toast.error("Failed to update progress");
+      console.error(err);
+    });
     
     if (newProgress === target) {
       confetti({
@@ -97,8 +110,6 @@ export default function GoalsPage() {
       });
       toast.success("Goal Completed! 🎉");
     }
-    
-    refetch(); 
   };
 
   const handleDelete = (id: string) => {
