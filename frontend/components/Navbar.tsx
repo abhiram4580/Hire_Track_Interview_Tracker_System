@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -15,8 +16,6 @@ export default function Navbar() {
 
   // Hide Navbar on Login/Register pages
   if (['/login', '/register'].includes(pathname)) return null;
-
-import { toast } from "react-hot-toast";
 
   const handleLogout = () => {
     localStorage.removeItem("token");
