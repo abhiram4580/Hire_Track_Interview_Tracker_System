@@ -34,3 +34,7 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Temporary log files
+gitlog.txt
+temp_git_log.txt

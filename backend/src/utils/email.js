@@ -9,6 +9,13 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendWelcomeEmail = async (email, username) => {
+  console.log(`[Email Service] Attempting to send welcome email to: ${email}`);
+  
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('[Email Service] Error: EMAIL_USER or EMAIL_PASS environment variables are missing.');
+      return;
+  }
+
   try {
     const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -31,10 +38,11 @@ const sendWelcomeEmail = async (email, username) => {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log(`Welcome email sent to: ${email}`, info.response);
+    console.log(`[Email Service] Welcome email successfully sent to: ${email}. ID: ${info.messageId}`);
     return info;
   } catch (error) {
-    console.error(`Error sending welcome email to ${email}:`, error);
+    console.error(`[Email Service] FAILED to send welcome email to ${email}.`);
+    console.error(`[Email Service] Error details:`, error);
     // Don't throw error to prevent blocking registration
   }
 };

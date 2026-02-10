@@ -120,8 +120,13 @@ const resolvers = {
       });
 
       // Send welcome email (non-blocking)
-      const { sendWelcomeEmail } = require("../../utils/email");
-      sendWelcomeEmail(email, username);
+      try {
+        console.log(`[Auth Resolver] Attempting to send welcome email to ${email}`);
+        const { sendWelcomeEmail } = require("../../utils/email");
+        sendWelcomeEmail(email, username);
+      } catch (emailError) {
+        console.error("[Auth Resolver] Failed to initiate welcome email:", emailError);
+      }
 
       const token = jwt.sign(
         { userId: user.id },
