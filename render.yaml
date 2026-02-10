@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: interview-tracker-backend
+    env: node
+    root: backend
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: interview-tracker-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NODE_ENV
+        value: production
+
+databases:
+  - name: interview-tracker-db
+    plan: free
+    databaseName: interview_tracker
+    user: interview_tracker_user
