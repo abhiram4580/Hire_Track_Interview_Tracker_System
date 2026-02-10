@@ -211,6 +211,7 @@ This application can be deployed to the cloud for **completely free** using:
 - Automatic deployment from GitHub
 
 ### Frontend: Vercel
+**Live App:** [https://hire-track-interview-tracker-system-rosy.vercel.app](https://hire-track-interview-tracker-system-rosy.vercel.app)
 - Free Next.js hosting
 - Automatic deployment from GitHub
 - Fast global CDN (Content Delivery Network)
