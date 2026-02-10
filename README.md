@@ -61,12 +61,9 @@ After each interview, you can save notes about:
 
 **Why this matters:** When preparing for similar companies or roles, you can review what worked before.
 
-### 6. Email Notifications 📧 [NEW]
-Stay updated with automated emails:
-- **Welcome Email:** Receive a warm welcome with getting started tips upon registration.
-- **Daily Interview Reminders:** Get an email at 8:00 AM if you have an interview scheduled for that day.
 
-### 7. User Accounts and Security
+
+### 6. User Accounts and Security
 - Each user has their own private account
 - Password protection (passwords are encrypted and stored securely)
 - Only you can see your data
