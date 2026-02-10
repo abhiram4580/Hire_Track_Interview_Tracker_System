@@ -2,7 +2,7 @@ services:
   - type: web
     name: interview-tracker-backend
     env: node
-    rootDir: backend
+    root: backend
     plan: free
     buildCommand: npm install && npm run build
     startCommand: npm start

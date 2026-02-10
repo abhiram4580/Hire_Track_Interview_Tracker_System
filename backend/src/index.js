@@ -1,7 +1,7 @@
 
 console.log("DEBUG: Starting index.js");
 require("dotenv").config();
-require("./cron"); // Start the cron job
+
 console.log("DEBUG: Loaded dotenv");
 
 const express = require("express");
