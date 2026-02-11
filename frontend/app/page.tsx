@@ -51,6 +51,10 @@ const CREATE_APPLICATION = gql`
       interviewDate: $interviewDate
     ) {
       id
+      company
+      role
+      status
+      interviewDate
     }
   }
 `;
@@ -92,15 +96,48 @@ export default function Home() {
   const [editingDateId, setEditingDateId] = useState<string | null>(null);
   const [editDateValue, setEditDateValue] = useState("");
 
-  const { data, loading, error, refetch } =
+  const { data, loading, error } =
     useQuery<ApplicationsQueryData>(GET_APPLICATIONS);
 
-  const [createApplication] = useMutation(CREATE_APPLICATION);
+  const [createApplication] = useMutation(CREATE_APPLICATION, {
+    update(cache, { data }: any) {
+      const newApp = data?.createApplication;
+      const existing = cache.readQuery<ApplicationsQueryData>({
+        query: GET_APPLICATIONS,
+      });
+
+      if (existing && newApp) {
+        cache.writeQuery({
+          query: GET_APPLICATIONS,
+          data: {
+            applications: [...existing.applications, newApp],
+          },
+        });
+      }
+    },
+  });
+
   const [updateApplicationStatus] = useMutation(
     UPDATE_APPLICATION_STATUS
   );
+  
   const [updateApplicationDate] = useMutation(UPDATE_APPLICATION_DATE);
-  const [deleteApplication] = useMutation(DELETE_APPLICATION);
+  
+  const [deleteApplication] = useMutation(DELETE_APPLICATION, {
+    update(cache, { data }, { variables }) {
+      if (variables?.id) {
+        cache.modify({
+          fields: {
+            applications(existingRefs = [], { readField }) {
+              return existingRefs.filter(
+                (ref: any) => readField("id", ref) !== variables.id
+              );
+            },
+          },
+        });
+      }
+    },
+  });
 
   /* ---------- Handlers ---------- */
 
@@ -112,15 +149,28 @@ export default function Home() {
       ? `${interviewYear}-${interviewMonth}-${interviewDay}`
       : null;
 
-    await createApplication({
-      variables: { company, role, status: "APPLIED", interviewDate },
-    });
+    const optimisticId = "temp-id-" + Date.now();
+    
+    // Clear inputs immediately
     setCompany("");
     setRole("");
     setInterviewMonth("");
     setInterviewDay("");
     setInterviewYear("");
-    refetch();
+
+    await createApplication({
+      variables: { company, role, status: "APPLIED", interviewDate },
+      optimisticResponse: {
+        createApplication: {
+          id: optimisticId,
+          company: company,
+          role: role,
+          status: "APPLIED",
+          interviewDate: interviewDate,
+          __typename: "Application",
+        },
+      },
+    });
   };
 
   const handleStatusChange = (
@@ -145,15 +195,23 @@ export default function Home() {
   const handleDelete = async (id: string) => {
     await deleteApplication({
       variables: { id },
+      optimisticResponse: {
+        deleteApplication: true,
+      },
     });
-    refetch();
   };
 
   const handleDateChange = async (id: string, date: string) => {
     await updateApplicationDate({
       variables: { id, interviewDate: date },
+      optimisticResponse: {
+        updateApplicationDate: {
+          id: id,
+          interviewDate: date,
+          __typename: "Application",
+        },
+      },
     });
-    refetch();
   };
 
   /* ---------- States ---------- */
