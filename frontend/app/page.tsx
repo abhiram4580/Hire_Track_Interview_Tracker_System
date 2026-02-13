@@ -121,7 +121,9 @@ export default function Home() {
     UPDATE_APPLICATION_STATUS
   );
   
-  const [updateApplicationDate] = useMutation(UPDATE_APPLICATION_DATE);
+  const [updateApplicationDate] = useMutation(UPDATE_APPLICATION_DATE, {
+    refetchQueries: [{ query: GET_APPLICATIONS }],
+  });
   
   const [deleteApplication] = useMutation(DELETE_APPLICATION, {
     update(cache, { data }, { variables }) {
