@@ -198,7 +198,6 @@ const resolvers = {
     },
 
     updateApplicationDate: async (_, { id, interviewDate }, { prisma, user }) => {
-      console.log("updateApplicationDate CALLED", { id, interviewDate });
       if (!user) {
         throw new AuthenticationError("Not authenticated");
       }
@@ -218,20 +217,12 @@ const resolvers = {
           parsedDate = date;
         }
       }
-      console.log("Parsed Date to save:", parsedDate);
 
-      const updatedApp = await prisma.application.update({
+      return prisma.application.update({
         where: { id },
         data: { interviewDate: parsedDate },
         include: { user: true },
       });
-      console.log("Updated App Result:", updatedApp);
-      
-      // Ensure we return the date as an ISO string to match schema type
-      return {
-        ...updatedApp,
-        interviewDate: updatedApp.interviewDate?.toISOString() || null
-      };
     },
 
     deleteApplication: async (_, { id }, { prisma, user }) => {
