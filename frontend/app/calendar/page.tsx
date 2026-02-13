@@ -61,6 +61,8 @@ export default function CalendarPage() {
           <div className={styles.grid}>
             {interviews.map((interview) => {
               const date = new Date(interview.interviewDate);
+              if (isNaN(date.getTime())) return null;
+              
               const day = date.getDate();
               const month = date.toLocaleString('default', { month: 'short' });
 

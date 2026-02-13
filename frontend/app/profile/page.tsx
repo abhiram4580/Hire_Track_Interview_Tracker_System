@@ -69,7 +69,11 @@ export default function ProfilePage() {
 
           <div>
             <span>Date of Birth</span>
-            <strong>{dateOfBirth ? new Date(dateOfBirth).toLocaleDateString() : "—"}</strong>
+            <strong>
+              {dateOfBirth && !isNaN(new Date(dateOfBirth).getTime()) 
+                ? new Date(dateOfBirth).toLocaleDateString() 
+                : "—"}
+            </strong>
           </div>
         </div>
       </div>

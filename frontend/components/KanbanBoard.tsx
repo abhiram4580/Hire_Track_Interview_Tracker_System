@@ -117,15 +117,23 @@ export default function KanbanBoard({
                       title="Click to change interview date"
                     >
                       <span>📅</span>
-                      {app.interviewDate ? (
-                        new Date(app.interviewDate).toLocaleDateString(undefined, {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric'
-                        })
-                      ) : (
-                        <span>Set Interview Date</span>
-                      )}
+                    {(() => {
+                        const dateStr = app.interviewDate;
+                        if (!dateStr) return <span>Set Interview Date</span>;
+                        
+                        const date = new Date(dateStr);
+                        if (isNaN(date.getTime())) return <span>Set Interview Date</span>;
+                        
+                        return (
+                          <span>
+                            {date.toLocaleDateString(undefined, {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric'
+                            })}
+                          </span>
+                        );
+                      })()}
                     </div>
                   )}
                 </div>
