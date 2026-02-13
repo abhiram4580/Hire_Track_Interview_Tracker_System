@@ -64,7 +64,9 @@ export default function KanbanBoard({
 
           {applications
             .filter((app) => app.status === status)
-            .map((app) => (
+            .map((app) => {
+              console.log(`Debug Date for ${app.company}:`, app.interviewDate);
+              return (
               <div
                 key={app.id}
                 draggable
@@ -142,7 +144,7 @@ export default function KanbanBoard({
                   Delete
                 </button>
               </div>
-            ))}
+            ); })}
         </div>
       ))}
     </div>
