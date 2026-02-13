@@ -210,9 +210,17 @@ const resolvers = {
         throw new AuthenticationError("Application not found");
       }
 
+      let parsedDate = null;
+      if (interviewDate) {
+        const date = new Date(interviewDate);
+        if (!isNaN(date.getTime())) {
+          parsedDate = date;
+        }
+      }
+
       return prisma.application.update({
         where: { id },
-        data: { interviewDate },
+        data: { interviewDate: parsedDate },
         include: { user: true },
       });
     },
@@ -248,7 +256,11 @@ const resolvers = {
           topics,
           experience,
           difficulty,
-          interviewDate: interviewDate ? new Date(interviewDate) : null,
+          interviewDate: (() => {
+            if (!interviewDate) return null;
+            const date = new Date(interviewDate);
+            return isNaN(date.getTime()) ? null : date;
+          })(),
           userId: user.id,
         },
         include: { user: true },
