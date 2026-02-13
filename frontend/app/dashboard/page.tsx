@@ -78,9 +78,13 @@ export default function ReviewPage() {
     e.preventDefault();
 
     // Construct interview date from dropdowns
-    const interviewDate = (interviewMonth && interviewDay && interviewYear)
+    let interviewDate = (interviewMonth && interviewDay && interviewYear)
       ? `${interviewYear}-${interviewMonth}-${interviewDay}`
       : null;
+
+    if (interviewDate) {
+      interviewDate = new Date(interviewDate).toISOString();
+    }
 
     await createReview({
       variables: {

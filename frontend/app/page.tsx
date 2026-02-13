@@ -145,9 +145,13 @@ export default function Home() {
     if (!company || !role) return;
 
     // Construct interview date from dropdowns (only if all selected)
-    const interviewDate = (interviewMonth && interviewDay && interviewYear)
+    let interviewDate = (interviewMonth && interviewDay && interviewYear)
       ? `${interviewYear}-${interviewMonth}-${interviewDay}`
       : null;
+
+    if (interviewDate) {
+      interviewDate = new Date(interviewDate).toISOString();
+    }
 
     const optimisticId = "temp-id-" + Date.now();
     
@@ -202,12 +206,13 @@ export default function Home() {
   };
 
   const handleDateChange = async (id: string, date: string) => {
+    const isoDate = new Date(date).toISOString();
     await updateApplicationDate({
-      variables: { id, interviewDate: date },
+      variables: { id, interviewDate: isoDate },
       optimisticResponse: {
         updateApplicationDate: {
           id: id,
-          interviewDate: date,
+          interviewDate: isoDate,
           __typename: "Application",
         },
       },
